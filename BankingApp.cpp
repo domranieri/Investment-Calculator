@@ -10,7 +10,8 @@ static const int COL_BALANCE  = 20;
 static const int COL_INTEREST = 24;
 static const int REPORT_WIDTH = COL_YEAR + COL_BALANCE + COL_INTEREST; // ~50 chars
 
-// Constructor - validates inputs so the object is always in a usable state
+// Constructor
+// Validates inputs so the object is always in a usable state
 
 BankingApp::BankingApp(double initialInvestment, double monthlyDeposit,
                        double annualInterest, int numYears)
@@ -29,7 +30,8 @@ BankingApp::BankingApp(double initialInvestment, double monthlyDeposit,
         throw std::invalid_argument("Number of years must be greater than zero.");
 }
 
-// displayInputSummary - prints the stored parameters, no I/O side effects
+// displayInputSummary
+// Prints the stored parameters, no I/O side effects
 
 void BankingApp::displayInputSummary() const {
     std::cout << "\n" << std::string(REPORT_WIDTH, '-') << '\n';
@@ -43,7 +45,8 @@ void BankingApp::displayInputSummary() const {
     std::cout << std::string(REPORT_WIDTH, '-') << '\n';
 }
 
-// printReportHeader - shared column header for both report methods
+// printReportHeader
+// Shared column header for both report methods
 
 void BankingApp::printReportHeader() const {
     std::cout << std::left
@@ -55,7 +58,7 @@ void BankingApp::printReportHeader() const {
 }
 
 // displayReportWithoutMonthlyDeposits
-//   Uses simple annual compounding: balance *= (1 + rate)
+// Uses simple annual compounding: balance *= (1 + rate)
 
 void BankingApp::displayReportWithoutMonthlyDeposits() const {
     std::cout << "\n  Balance and Interest Without Monthly Deposits\n";
@@ -80,7 +83,6 @@ void BankingApp::displayReportWithoutMonthlyDeposits() const {
 
 // displayReportWithMonthlyDeposits
 //   Compounds monthly: deposit is added each month before interest accrues
-//   Monthly rate = annualRate / 12
 
 void BankingApp::displayReportWithMonthlyDeposits() const {
     std::cout << "\n  Balance and Interest With Monthly Deposits\n";
